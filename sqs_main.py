@@ -31,7 +31,9 @@ if index == 2:
     send_message(queue_name)
 
 if index == 3:
-    receive_messages(queue_name)
+    print("Enter receive count:")
+    receive_count = int(input())
+    receive_messages(queue_name, receive_count)
 
 print("Press any key to exit")
 os.system("read")
