@@ -2,6 +2,14 @@ from sqs_core import *
 import json
 
 
+def configure_dl_queue(primary_queue_url, deadletter_queue_url):
+    redrive_policy = {
+        "deadLetterTargetArn": get_queue_arn_by_url(deadletter_queue_url),
+        "maxReceiveCount": "5",
+    }
+    set_queue_attribues(primary_queue_url, json.dumps(redrive_policy))
+
+
 def create_with_deadletter(queue_to_create):
     print()
 
@@ -39,13 +47,12 @@ def create_with_deadletter(queue_to_create):
     # Deadletter Configuration
     dl_queue_iterator = get_dl_collection_iterator_by_url(deadletter_queue_url)
 
-    for dl_queue in dl_queue_iterator:
-        if primary_queue_url in dl_queue.url:
-            print("Dead Letter Queue Already Configured")
-        else:
-            print("Need to configure dead letter queue")
-            redrive_policy = {
-                "deadLetterTargetArn": get_queue_arn_by_url(deadletter_queue_url),
-                "maxReceiveCount": "10",
-            }
-            set_queue_attribues(primary_queue_url, json.dumps(redrive_policy))
+    if any(dl_queue_iterator):
+        for dl_queue in dl_queue_iterator:
+            if primary_queue_url in dl_queue.url:
+                print("Dead Letter Queue Already Configured")
+            else:
+                print("Need to configure dead letter queue")
+                configure_dl_queue(primary_queue_url, deadletter_queue_url)
+    else:
+        configure_dl_queue(primary_queue_url, deadletter_queue_url)

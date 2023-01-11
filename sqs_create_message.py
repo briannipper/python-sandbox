@@ -33,4 +33,6 @@ def send_message(queue_name):
         )
     )
 
-    print(response['MessageId'])
+    print()
+    print("Message ID: " + response['MessageId'])
+    print()
