@@ -2,6 +2,7 @@ from sqs_core import *
 import json
 import time
 
+
 def receive_messages(queue_name, receive_count):
     queue_url = get_queue_url(queue_name)
 
@@ -21,12 +22,12 @@ def receive_messages(queue_name, receive_count):
             WaitTimeSeconds=0,
         )
 
-        if response.get('Messages') == None:
-            print('No messages to retrive')
+        if response.get("Messages") == None:
+            print("No messages to retrive")
             print()
         else:
-            message = response['Messages'][0]
+            message = response["Messages"][0]
             json_formatted_str = json.dumps(message, indent=2)
 
-            print('Message: %s' % json_formatted_str)
+            print("Message: %s" % json_formatted_str)
             print()

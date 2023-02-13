@@ -6,6 +6,7 @@ from ses_core import *
 from pick import pick
 import os
 
+
 def get_queue_name():
     print("Please enter a queue name:")
     result = input()
@@ -13,6 +14,7 @@ def get_queue_name():
     print()
     print(option + ": " + result)
     return result
+
 
 print()
 
@@ -32,7 +34,7 @@ print()
 
 if index == 0:
     set_email_values()
-    
+
 if index == 1:
     queue_name = get_queue_name()
     create_with_deadletter(queue_name)
