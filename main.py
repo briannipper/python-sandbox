@@ -53,5 +53,5 @@ if index == 4:
     receive_count = int(input())
     receive_messages(queue_name, receive_count)
 
-print("Press any key to exit")
+print("Press enter key to exit")
 os.system("read")
