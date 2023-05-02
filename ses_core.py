@@ -6,7 +6,7 @@ from botocore.exceptions import ClientError
 
 def set_email_values():
     print("Please enter the email to send from:")
-    print("example: no-reply@develop.platform.keends.com")
+    print("example: no-reply@develop.keen-platform.com")
     SENDER = input()
     print()
 
