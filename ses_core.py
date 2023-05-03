@@ -39,57 +39,178 @@ def set_email_values():
         BODY_TEXT = (
             "Let's Reset\r\n"
             "Please click the button below to reset your password.\r\n"
-            "https://keen-platform.com/auth/reset-password/NQ/bnjlmm-8be94fab7dc6d12e398d103ac21a33e1 \r\n"
             "Cheers,"
         )
 
+        # HTML Placeholder Values
+        header = "Let's Reset!"
+        icon_url = "https://develop.files.keen-platform.com/email-template/reset.png"
+        icon_alt = "Reset"
+        detail = "A reset link has been generated for you."
+        button_text = "Reset Keen Platform Password"
+        user = RECIPIENT
+        button_url = "https://keen-platform.com/auth/reset-password/NQ/bnjlmm-8be94fab7dc6d12e398d103ac21a33e1"
+        signature_url = "https://develop.files.keen-platform.com/email-template/email_signature.png"
+
         # The HTML body of the message.
-        BODY_HTML = f"""<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-        <html xmlns="https://www.w3.org/1999/xhtml">
+        BODY_HTML = f"""<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+        <html>
             <head>
-                <title></title>
-                <meta http–equiv="Content-Type" content="text/html; charset=UTF-8" />
-                <meta http–equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
-                <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i" rel="stylesheet" />
-                <style>
-                @media only screen and (min–width:481px) and (max–width:699px) {{
-                    .w_full {{
-                        width: 100% !important;
-                        }}
-                    }}
-                </style>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             </head>
-            <body class="em_body" style="margin:0px; padding:0px; height: 100vh" bgcolor="#efefef;">
-                <table class="w_full" align="center" width="700" border="0" cellpadding="0" cellspacing="0" style="width:700px; min-height:20%;" bgcolor="#186da4">
-                    <tr>
-                        <td align="center" valign="top" style="font-family:Montserrat, Arial, sans-serif; font-weight:600; font-size:4rem; line-height:60px; color:#ffffff; padding-top: 60px; padding-bottom: 40px;">Let&#x27;s Reset</td>
-                    </tr>
-                </table>
-                <div class="w_full" style="width: 700px; background: #186da4; margin-left: auto; margin-right: auto; min-height:20%;">
-                    <img src="https://files.keen-platform.com/email-template/reset.png" style="width: 20%; margin-left: auto; margin-right: auto; display: block;"  alt="Reset"/>
-                </div>
-                <table class="w_full" align="center" width="700" border="0" cellpadding="0" cellspacing="0" style="width:700px; min-height:40%;" bgcolor="#186da4">
-                    <tr>
-                        <td align="center" valign="top" style="font-family:Montserrat, Arial, sans-serif; font-size:1.3rem; line-height:2.5rem; color:#ffffff; padding: 10px; padding-bottom: 80px"><p>A reset link has been generated for you.</p></td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top">
-                            <a href="https://keen-platform.com/auth/reset-password/NQ/bnjlmm-8be94fab7dc6d12e398d103ac21a33e1" style="background-color: #ffffff; border: none; border-radius: 5px; color: #186da4; font-family:Montserrat, Arial, sans-serif; font-weight:600; font-size:1.5rem; padding: 30px 60px; text-decoration: none;">Reset Keen Platform Password</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top" style="font-family:Montserrat, Arial, sans-serif; font-size:1.3rem; line-height: 3rem; color:#ffffff; padding-top: 90px;">Your username is: {RECIPIENT}</td>
-                    </tr>
-                    <tr>
-                        <td align="center" valign="top" style="font-family:Montserrat, Arial, sans-serif; font-size:1.3rem; line-height: 3rem; color:#ffffff; padding-top: 90px;">Cheers,</td>
-                    </tr>
-                </table>
-                <div class="w_full" style="width: 700px; background: #186da4; margin-left: auto; margin-right: auto; min-height:20%;">
-                    <img src="https://files.keen-platform.com/email-template/email_signature.png" style="width: 45%; margin-left: auto; margin-right: auto; display: block; padding-bottom: 60px;"  alt="The Keen Team"/>
-                </div>
-                <div class="w_full" style="width: 700px; background #EFEFEF; margin-left: auto; margin-right: auto; min-height: 20%;">
-                    Headquarters | 700 Park Offices Dr. Ste. 150 | Research Triangle, NC 27709
+            <body>
+                <div style="background-color: #efefef; margin: 0">
+                    <table
+                        style="
+                            font-family: Montserrat, Arial, sans-serif;
+                            font-size: 14px;
+                            color: #ffffff;
+                            width: 98%;
+                            max-width: 600px;
+                            float: none;
+                            margin: 0 auto;
+                            background: #186da4;
+                        "
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        valign="top"
+                        align="left"
+                    >
+                        <tbody>
+                            <tr>
+                                <td
+                                    align="center"
+                                    valign="top"
+                                    style="
+                                        font-family: Montserrat, Arial, sans-serif;
+                                        font-weight: 600;
+                                        font-size: 24px;
+                                        line-height: 22px;
+                                        padding-top: 30px;
+                                        padding-bottom: 32px;
+                                    "
+                                >
+                                    { header }
+                                </td>
+                            </tr>
+                            <tr align="middle">
+                                <td style="padding-top: 24px">
+                                    <img src="{ icon_url }" height="50" alt="{ icon_alt }" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    align="center"
+                                    valign="top"
+                                    style="
+                                        font-family: Montserrat, Arial, sans-serif;
+                                        font-size: 18px;
+                                        line-height: 22px;
+                                        color: #ffffff;
+                                        padding-top: 24px;
+                                    "
+                                >
+                                    { detail }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding-top: 24px">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    align="center"
+                                                    style="
+                                                        height: 38px;
+                                                        padding: 7px 24px;
+                                                        border-radius: 4px;
+                                                        background-color: #ffffff;
+                                                    "
+                                                >
+                                                    <a
+                                                        id="activate-url"
+                                                        href="{ button_url }"
+                                                        style="text-decoration: none"
+                                                    >
+                                                        <span
+                                                        style="
+                                                            background-color: #ffffff;
+                                                            border: none;
+                                                            border-radius: 5px;
+                                                            color: #186da4;
+                                                            font-family: Montserrat, Arial, sans-serif;
+                                                            font-weight: 600;
+                                                            font-size: 14px;
+                                                        "
+                                                        >{ button_text }</span
+                                                        >
+                                                    </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                align="center"
+                                                style="
+                                                    font-family: Montserrat, Arial, sans-serif;
+                                                    color: #ffffff;
+                                                    padding-top: 24px;
+                                                    font-size: 12px;
+                                                "
+                                            >
+                                                This link expires in 3 days.
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    align="center"
+                                    style="
+                                        font-family: Montserrat, Arial, sans-serif;
+                                        color: #ffffff;
+                                        padding-top: 24px;
+                                    "
+                                >
+                                Your username is <strong>{ user }</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    align="center"
+                                    style="
+                                        font-family: Montserrat, Arial, sans-serif;
+                                        font-size: 18px;
+                                        line-height: 22px;
+                                        color: #ffffff;
+                                        padding-top: 24px;
+                                    "
+                                >
+                                    Cheers,
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    align="center"
+                                    valign="top"
+                                    style="color: #ffffff; padding-top: 24px; padding-bottom: 32px"
+                                >
+                                    <img
+                                        src="{ signature_url }"
+                                        style="
+                                            width: 45%;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                            display: block;
+                                        "
+                                        alt="The Keen Team"
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </body>
         </html>
@@ -108,8 +229,8 @@ def set_email_values():
         <html>
             <head></head>
             <body>
-                <h1>Amazon SES Test (SDK for Python)</h1>
-                <p>This email was sent with <a href='https://aws.amazon.com/ses/'>Amazon SES</a> using the <a href='https://aws.amazon.com/sdk-for-python/'>AWS SDK for Python (Boto)</a>.</p>
+                <h1>Let's Reset</h1>
+                <p>This is just content no links</p>
             </body>
         </html>
         """
