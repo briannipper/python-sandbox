@@ -6,12 +6,12 @@ from botocore.exceptions import ClientError
 
 def set_email_values():
     print("Please enter the email to send from:")
-    print("example: no-reply@develop.keen-platform.com")
+    print("example: no-reply@example.com")
     SENDER = input()
     print()
 
     print("Please enter to to address:")
-    print("example: brian.nipper@keends.com")
+    print("example: new-email@gmail.com")
     RECIPIENT = input()
     print()
 
@@ -44,13 +44,13 @@ def set_email_values():
 
         # HTML Placeholder Values
         header = "Let's Reset!"
-        icon_url = "https://develop.files.keen-platform.com/email-template/reset.png"
+        icon_url = "some_image_url
         icon_alt = "Reset"
         detail = "A reset link has been generated for you."
-        button_text = "Reset Keen Platform Password"
+        button_text = "Reset Password"
         user = RECIPIENT
-        button_url = "https://keen-platform.com/auth/reset-password/NQ/bnjlmm-8be94fab7dc6d12e398d103ac21a33e1"
-        signature_url = "https://develop.files.keen-platform.com/email-template/email_signature.png"
+        button_url = "some_button_url"
+        signature_url = "some_image_url_other"
 
         # The HTML body of the message.
         BODY_HTML = f"""<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -205,7 +205,7 @@ def set_email_values():
                                             margin-right: auto;
                                             display: block;
                                         "
-                                        alt="The Keen Team"
+                                        alt="The Team"
                                     />
                                 </td>
                             </tr>
@@ -220,7 +220,7 @@ def set_email_values():
         # The email body for recipients with non-HTML email clients.
         BODY_TEXT = (
             "Let's Reset\r\n"
-            "This is a simple email message from keen-platform.com."
+            "This is just content no links"
         )
 
         # The HTML body of the email.
