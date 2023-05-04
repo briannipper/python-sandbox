@@ -219,9 +219,8 @@ def set_email_values():
         print("You input was for a simple message")
         # The email body for recipients with non-HTML email clients.
         BODY_TEXT = (
-            "Amazon SES Test (Python)\r\n"
-            "This email was sent with Amazon SES using the "
-            "AWS SDK for Python (Boto)."
+            "Let's Reset\r\n"
+            "This is a simple email message from keen-platform.com."
         )
 
         # The HTML body of the email.
