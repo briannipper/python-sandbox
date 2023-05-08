@@ -44,7 +44,7 @@ def set_email_values():
 
         # HTML Placeholder Values
         header = "Let's Reset!"
-        icon_url = "some_image_url
+        icon_url = "some_image_url"
         icon_alt = "Reset"
         detail = "A reset link has been generated for you."
         button_text = "Reset Password"
